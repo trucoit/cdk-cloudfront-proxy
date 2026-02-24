@@ -1,23 +1,29 @@
-###
 # Misc
-#
 **/*.zip
 **/*.localtest
 **/*.bkp
 /testing
 /Output/*
 
-# Standard files
+# Editor
 **/.vscode
 **/.DS_Store
 **/.ropeproject
+**/.idea
 
-# Ignore packaged templates
-**/packaged-*
+# CDK
+cdk.out/
+cdk.context.json
 
-###
-# Python files
-#
+# TypeScript / Node
+node_modules/
+lib/
+*.js.map
+*.d.ts.map
+coverage/
+.npm/
+
+# Python (scripts)
 **/__pycache__
 **/*.pyc
 **/.env
@@ -28,13 +34,11 @@
 **/env.bak/
 **/venv.bak/
 **/.Python
-**/build/
 **/develop-eggs/
 **/dist/
 **/downloads/
 **/eggs/
 **/.eggs/
-**/lib/
 **/lib64/
 **/parts/
 **/sdist/
@@ -44,4 +48,3 @@
 **/*.egg-info/
 **/.installed.cfg
 **/*.egg
-.pre-commit-config.yaml
