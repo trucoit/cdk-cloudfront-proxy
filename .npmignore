@@ -1,0 +1,22 @@
+# Source files
+src/
+lambda/
+
+# Tests
+test/
+*.test.ts
+*.test.js
+
+# Config files
+tsconfig.json
+jest.config.json
+.eslintrc.json
+
+# Development
+.github/
+*.md
+!README.md
+
+# Build artifacts
+*.tsbuildinfo
+.DS_Store

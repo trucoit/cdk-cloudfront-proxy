@@ -11,6 +11,9 @@
 **/.ropeproject
 **/.idea
 
+# Amazon Q
+.amazonq/
+
 # CDK
 cdk.out/
 cdk.context.json

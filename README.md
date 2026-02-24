@@ -73,7 +73,7 @@ Contributions and feedback are welcome! See [CONTRIBUTING](./CONTRIBUTING.md) fo
 
 ## Code of Conduct
 
-Please review the [Code of Conduct](./CODE_OF_CONDUCT.MD).
+Please review the [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## License
 
