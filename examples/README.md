@@ -82,6 +82,62 @@ Internet → CloudFront → Lambda (VPC) → ECS Fargate (2 tasks, NGINX)
 
 ---
 
+## Usage Samples
+
+### Wildcard Domains
+
+```typescript
+import { CloudFrontProxy } from '@trucoit/cdk-cloudfront-proxy';
+
+const proxy = new CloudFrontProxy(this, 'Proxy', {
+  routingRules: {
+    '*.cdn.example.com': {
+      target: 'internal.cdn.local',
+      port: 443,
+      protocol: 'https'
+    }
+  },
+  vpc: myVpc,
+});
+```
+
+### With Caching Enabled
+
+```typescript
+import { CloudFrontProxy } from '@trucoit/cdk-cloudfront-proxy';
+import { Duration } from 'aws-cdk-lib';
+
+const proxy = new CloudFrontProxy(this, 'Proxy', {
+  routingRules: {
+    'static.example.com': {
+      target: 'internal.static.local'
+    }
+  },
+  vpc: myVpc,
+  enableCaching: true,
+  cacheTtl: Duration.hours(1),
+});
+```
+
+### With Access Logs
+
+```typescript
+import { CloudFrontProxy } from '@trucoit/cdk-cloudfront-proxy';
+import * as s3 from 'aws-cdk-lib/aws-s3';
+
+const logBucket = new s3.Bucket(this, 'LogBucket');
+
+const proxy = new CloudFrontProxy(this, 'Proxy', {
+  routingRules: { /* ... */ },
+  vpc: myVpc,
+  enableAccessLogs: true,
+  logBucket,
+  logPrefix: 'my-proxy-logs/',
+});
+```
+
+---
+
 ## Developing with Local Changes
 
 When making changes to the construct:

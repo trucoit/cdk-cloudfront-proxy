@@ -22,8 +22,6 @@ Requires a GitHub token with `read:packages` permission and the following `.npmr
 
 ## Usage
 
-### Basic Example
-
 ```typescript
 import { CloudFrontProxy } from '@trucoit/cdk-cloudfront-proxy';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
@@ -50,53 +48,9 @@ new CfnOutput(this, 'ProxyUrl', {
 });
 ```
 
-### Wildcard Domains
+Is really that simple!
 
-```typescript
-const proxy = new CloudFrontProxy(this, 'Proxy', {
-  routingRules: {
-    '*.cdn.example.com': {
-      target: 'internal.cdn.local',
-      port: 443,
-      protocol: 'https'
-    }
-  },
-  vpc: myVpc,
-});
-```
-
-### With Caching Enabled
-
-```typescript
-import { Duration } from 'aws-cdk-lib';
-
-const proxy = new CloudFrontProxy(this, 'Proxy', {
-  routingRules: {
-    'static.example.com': {
-      target: 'internal.static.local'
-    }
-  },
-  vpc: myVpc,
-  enableCaching: true,
-  cacheTtl: Duration.hours(1),
-});
-```
-
-### With Access Logs
-
-```typescript
-import * as s3 from 'aws-cdk-lib/aws-s3';
-
-const logBucket = new s3.Bucket(this, 'LogBucket');
-
-const proxy = new CloudFrontProxy(this, 'Proxy', {
-  routingRules: { /* ... */ },
-  vpc: myVpc,
-  enableAccessLogs: true,
-  logBucket,
-  logPrefix: 'my-proxy-logs/',
-});
-```
+For more examples including wildcard domains, caching, and access logs, see the [examples directory](./examples/README.md).
 
 ## Props
 
