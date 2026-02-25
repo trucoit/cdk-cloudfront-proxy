@@ -1,1 +1,2 @@
-export { CloudFrontProxy, CloudFrontProxyProps } from './cloudfront-proxy';
+export { CloudFrontProxy } from './cloudfront-proxy';
+export { CloudFrontProxyProps, UpstreamConfig } from './types';

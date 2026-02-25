@@ -15,21 +15,35 @@
 .amazonq/
 
 # CDK
-cdk.out/
-cdk.context.json
+**/cdk.out/
+**/.cdk.staging
+
+# CDK Context - ignored for construct library
+# Note: CDK apps should commit cdk.context.json, but construct libraries should not
+**/cdk.context.json
 
 # TypeScript / Node
-node_modules/
-lib/
-*.js.map
-*.d.ts.map
-coverage/
-.npm/
+**/node_modules/
+**/lib/
+**/*.js
+!jest.config.js
+**/*.d.ts
+**/*.js.map
+**/*.d.ts.map
+**/coverage/
+**/.npm/
+**/.nyc_output/
+**/tsconfig.tsbuildinfo
+**/*.tgz
+.npmrc
+junit.xml
 
 # Python (scripts)
 **/__pycache__
 **/*.pyc
 **/.env
+**/.env.local
+**/.env.*.local
 **/.venv
 **/env/
 **/venv/
